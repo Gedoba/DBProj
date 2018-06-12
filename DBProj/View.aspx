@@ -41,6 +41,7 @@
                 <asp:BoundField DataField="Job_id" HeaderText="Job_id" SortExpression="Job_id" />
                 <asp:BoundField DataField="Salary" HeaderText="Salary" SortExpression="Salary" />
                 <asp:BoundField DataField="Commission_pct" HeaderText="Commission_pct" SortExpression="Commission_pct" />
+                <asp:HyperLinkField DataNavigateUrlFormatString="Details.aspx?field={0}" HeaderText="Link" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -171,13 +172,13 @@
             </tr>
             <tr>
                 <td class="auto-style1">
-            <asp:Button ID="ButtonSave" runat="server" OnClick="Button1_Click" Text="Save" />
+            <asp:Button ID="ButtonSave" runat="server" OnClick="ButtonSave_Click" Text="Save" />
                 </td>
                 <td class="auto-style4">
                     <asp:Button ID="ButtonUpdate" runat="server" OnClick="ButtonUpdate_Click" Text="Update" />
                 </td>
                 <td class="auto-style4">
-                    <asp:Button ID="ButtonSearch" runat="server" OnClick="Button2_Click" Text="Search" />
+                    <asp:Button ID="ButtonSearch" runat="server" OnClick="ButtonSearch_Click" Text="Search" />
                 </td>
                 <td>&nbsp;</td>
             </tr>

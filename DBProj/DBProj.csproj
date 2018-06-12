@@ -72,10 +72,18 @@
     <Content Include="App_Data\Employees_log.ldf">
       <DependentUpon>Employees.mdf</DependentUpon>
     </Content>
+    <Content Include="Details.aspx" />
     <Content Include="View.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>

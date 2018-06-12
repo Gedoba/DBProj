@@ -17,10 +17,17 @@ namespace DBProj
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            for (int i = 0; i < GridEmployees.Rows.Count; i++)
+            {
+                HyperLink link = new HyperLink();
+                link.NavigateUrl = "Details.aspx?field=" + GridEmployees.Rows[i].Cells[0].Text;
+                link.Text = "Edit";
+                GridEmployees.Rows[i].Cells[9].Controls.Add(link);
 
+            }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void ButtonSearch_Click(object sender, EventArgs e)
         {
             string query = "SELECT * FROM Employees e WHERE " +
                 "e.First_name LIKE @FNAME + '%' AND " +
@@ -50,17 +57,29 @@ namespace DBProj
 
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
+
+
                     GridEmployees.DataSourceID = null;
                     GridEmployees.DataSource = dataTable;
                     GridEmployees.DataBind();
 
+                    
+                    for (int i = 0; i < GridEmployees.Rows.Count; i++)
+                    {
+                        HyperLink link = new HyperLink();
+                        link.NavigateUrl = "Details.aspx?field=" + GridEmployees.Rows[i].Cells[0].Text;
+                        link.Text = "Edit";
+                        GridEmployees.Rows[i].Cells[9].Controls.Add(link);
+
+                    }
+
                 }
             }
-            catch (SqlException) { }
+            catch (SqlException) {  }
             
 
         }
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ButtonSave_Click(object sender, EventArgs e)
         {
             try
             {
@@ -76,7 +95,9 @@ namespace DBProj
                 }
 
             }
-            catch (SqlException) { }
+            catch (SqlException)
+            {
+            }
         }
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
